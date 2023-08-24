@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page</title>
+  <script>
+    const path = window.location.pathname.replace(/\/$/, '');
+    const link = document.createElement('a');
+    link.href = path;
+    // Redirect to the correct page while preserving the URL
+    window.location.replace(link.href);
+  </script>
+</head>
+<body></body>
+</html>
