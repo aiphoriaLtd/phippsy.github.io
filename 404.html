@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 Page</title>
-  <script>
-    const path = window.location.pathname.replace(/\/$/, '');
-    const link = document.createElement('a');
-    link.href = path;
-    // Redirect to the correct page while preserving the URL
-    window.location.replace(link.href);
-  </script>
-</head>
-<body></body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Single Page App Redirect</title>
+    <script>
+      // Get the URL path after the domain
+      var segment = location.pathname.split("/").pop();
+
+      // Check if a path segment exists and if it's not a file
+      if (segment.length > 0 && !segment.includes(".")) {
+        // Redirect to the index.html with the original path and query parameters
+        location.replace(
+          location.origin +
+            "/index.html?originalPath=" +
+            encodeURIComponent(location.pathname + location.search)
+        );
+      }
+    </script>
+  </head>
+  <body></body>
 </html>
